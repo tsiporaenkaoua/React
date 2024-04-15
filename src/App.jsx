@@ -17,6 +17,7 @@ function App() {
   const handleChange = (e,  {value}) => { /***********************VOIR COMmENT CA FONCTIONNE */
   setSelectedCategory(value);
   };
+  const essai = "ca marcheeeee!"; 
 
   const optionsCat = categories.map((category) => ({
     key: category.id, // Use category ID as key
@@ -38,15 +39,15 @@ function App() {
     options={optionsCat} 
     onChange={handleChange}
     />
-
-    <Service option={selectedCategory}/> 
+    
+    <Service option={selectedCategory} optionne= {essai}/> 
   </>
    )
 }
 
 
 
-function Service({option}){
+function Service({option, optionne}){
   
   const services =[
     {id:1, name:"Je fais le ménage pour 25€ de l'heure"},
@@ -59,10 +60,13 @@ function Service({option}){
   const name = services.find((service) => (service.id === option))?.name;
   // si service.id=={option} true  , renvoit l'element trouvé . Le ?.name accede a la prop name de cet élément (? evite les erreurs si rien n'est trouvé)
 
+  console.log({optionne})
   return(
     <>
-   Choix de l'option : {option}
+    
+   Choix de l'option : {option} <br/>
    <h2>{name}</h2>
+   "{optionne}"
   
    
     </>
